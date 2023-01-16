@@ -1,15 +1,23 @@
-# output "urn" {
-#   value = { for k, config in digitalocean_droplet.instances: k => config.urn }
-# }
+output "leader_urn" {
+    value = [ for instance in  digitalocean_droplet.leader_instance : instance.urn ]
+}
 
-# output "urn" {
-#   value = digitalocean_droplet.server_leader_client[*].urn
-# }
+output "leader_ip" {
+    value = [ for instance in  digitalocean_droplet.leader_instance : instance.ipv4_address ]
+}
 
-# output "ip" {
-#   value = digitalocean_droplet.server_leader_client[*].ipv4_address
-# }
+output "leader_ip_private" {
+    value = [ for instance in  digitalocean_droplet.leader_instance : instance.ipv4_address_private ]
+}
 
-# output "ip_private" {
-#   value = digitalocean_droplet.server_leader_client[*].ipv4_address_private
-# }
+output "instances_urn" {
+    value = [ for instance in  digitalocean_droplet.instances : instance.urn ]
+}
+
+output "instances_ip" {
+    value = [ for instance in  digitalocean_droplet.instances : instance.ipv4_address ]
+}
+
+output "instances_ip_private" {
+    value = [ for instance in  digitalocean_droplet.instances : instance.ipv4_address_private ]
+}

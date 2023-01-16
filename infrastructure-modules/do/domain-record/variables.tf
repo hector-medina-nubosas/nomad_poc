@@ -27,4 +27,3 @@ variable "do_token" {
     description = "API auth digital ocean token."
     type = string
 }
- 
